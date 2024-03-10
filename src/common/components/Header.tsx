@@ -1,9 +1,23 @@
+import Link from "next/link";
+
 export function Header() {
   return (
-    <header className="w-full py-5 bg-gray-800 h-[50px] flex items-center justify-center">
-      <h1 className="text-white">
-        Header
+    <header className="w-full px-5 py-5 bg-gray-800 h-[50px] flex items-center justify-between">
+      <h1 className="font-bold text-white">
+        Blogs
       </h1>
+      <ul className="flex gap-5">
+        <li className="text-white">
+          <Link href="/home">
+            Home
+          </Link>
+        </li>
+        <li className="text-white">
+          <Link href="/home">
+            Another 
+          </Link>
+        </li>
+      </ul>
     </header>
   )
 }

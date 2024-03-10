@@ -1,23 +1,35 @@
 import Link from "next/link";
 import { BlogType } from "@/common/utils/contants";
+import { Button } from "../Button";
 
-export enum ImageView {
-  NONE,
-  LINK,
-  BIN
+export enum ViewType {
+  LIST,
+  SHOW,
+  SHOW_IMAGE
 }
 
-export function Blog({ blog, imageView }: { blog: BlogType, imageView: ImageView }) {
+export function Blog({ blog, view }: { blog: BlogType, view: ViewType }) {
   return (
     <Link href={`/blog/${blog.id}`}>
       <div className="w-full rounded hover:scale-[1.02] transition cursor-pointer mx-auto my-2 max-w-[700px] p-5  bg-gray-800">
         <h1 className="font-bold text-[#f3f3f3]">
           {blog.id}
         </h1>
-        <p className="text-white opacity-[.7]">{blog.content}</p>
-        {imageView == ImageView.LINK && <Link href={`/blog/${blog.id}`}> {`/blog/${blog.id}/image`} </Link>}
-        {imageView == ImageView.BIN && <img src={blog.img} />}
+        <p className="font-bold text-white opacity-[.7]">{blog.title}</p>
+        {view === ViewType.SHOW && (
+          <>
+            <br/>
+            <p className="text-white opacity-[.7]">{blog.content}</p>
+            <Link className="underline mt-2 hover:text-green-400 text-end block text-green-600" href={`/blog/${blog.id}/image`}> 
+              <Button
+                label="View image"
+                style={{color: "white", opacity: .7, backgroundColor: "red"}}
+              />
+            </Link>
+          </>
+        )}
+        {view == ViewType.SHOW_IMAGE && <img src={blog.img} />}
       </div>
-    </Link>
+    </Link >
   )
 }
