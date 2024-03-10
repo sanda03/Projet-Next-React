@@ -1,6 +1,6 @@
 import { redirect } from "next/navigation";
 
-import { Blog, BlogMenuList, ViewType } from "@/common/components/blogs";
+import { Blog, ViewType } from "@/common/components/blogs";
 import blogs from "@/common/utils/contants";
 
 export default function ViewBlog({ params: { blogId } }: { params: { blogId: string } }) {
@@ -10,13 +10,5 @@ export default function ViewBlog({ params: { blogId } }: { params: { blogId: str
     redirect("/404");
   }
 
-  return (
-    <div 
-      className="flex ml-[300px] p-5 justify-center"
-      style={{width: "calc(100% - 300px)"}}
-    >
-      <BlogMenuList />
-      <Blog blog={currentBlog} view={ViewType.SHOW} />
-    </div>
-  )
+  return <Blog blog={currentBlog} view={ViewType.SHOW} />
 }

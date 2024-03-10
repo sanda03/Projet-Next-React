@@ -7,8 +7,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Web3 Blogs",
-  description: "RickaPrincy",
+  title: "HEI WEB3",
+  description: "Cool application",
 };
 
 export default function Layout({
