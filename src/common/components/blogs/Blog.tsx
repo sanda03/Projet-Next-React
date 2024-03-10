@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { BlogType } from "@/common/utils/contants";
 import { Button } from "../Button";
 
@@ -28,7 +29,7 @@ export function Blog({ blog, view }: { blog: BlogType, view: ViewType }) {
             </Link>
           </>
         )}
-        {view == ViewType.SHOW_IMAGE && <img src={blog.img} />}
+        {view == ViewType.SHOW_IMAGE && <Image src={blog.img} alt={blog.img} width={500} height={500}/>}
       </div>
     </Link >
   )
